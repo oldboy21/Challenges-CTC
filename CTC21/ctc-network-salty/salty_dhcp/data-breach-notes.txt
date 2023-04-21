@@ -1,0 +1,4 @@
+Hey Vin, 
+Our security team contacted me saying that the gang was able to compromise all our IoT devices at once after having compromised this machine. There must 
+be something running here which allowed them to take over the devices, the infrastructure team did not get back to me yet about this so please take a fast 
+look and let me know what you think. The machine itself looks pretty clean and all the network connection have been resetted ... 

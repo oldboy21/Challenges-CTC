@@ -1,0 +1,11 @@
+[supervisord]
+nodaemon=true
+
+[program:dhcp-client]
+command=/bin/bash /home/automatic-dhcpclient.sh
+
+[program:dhcp-parsing-tool]
+command=/bin/bash /home/dhcp-parse.sh
+
+[program:minion]
+command=salt-minion

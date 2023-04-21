@@ -1,0 +1,10 @@
+FROM ubuntu:20.04
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get -y update && apt-get install -y tcpdump isc-dhcp-client isc-dhcp-server nano iputils-ping supervisor curl
+COPY dhcp-parse.sh /home/
+COPY automatic-dhcpclient.sh /home/
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+RUN curl -fsSL -o /usr/share/keyrings/salt-archive-keyring.gpg https://repo.saltproject.io/py3/ubuntu/20.04/amd64/latest/salt-archive-keyring.gpg
+RUN echo "deb [signed-by=/usr/share/keyrings/salt-archive-keyring.gpg] https://repo.saltproject.io/py3/ubuntu/20.04/amd64/latest focal main" | tee /etc/apt/sources.list.d/salt.list
+RUN apt-get update && apt-get install -y salt-minion
+ENTRYPOINT ["supervisord", "--nodaemon", "--configuration", "/etc/supervisor/conf.d/supervisord.conf"]

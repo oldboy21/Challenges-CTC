@@ -1,0 +1,29 @@
+title: Salty
+public_description: >
+  <div class="challtext">Mayflower gang got a networking guy who is having fun of us, he unleashed the shark in the network and he has compromised our whole infra. Connect over SSH (ctc:ctc) to our jumphost and please let us know what happened! <br><br><i>Author information: This challenge is developed by ABN.</i></div>
+  <div class="character character-tigerlily"></div>
+author: ABN
+tags: "hard"
+
+flags:
+  - tags: [network]
+    title: "This flag is salty"
+    unique_id: ctc-network-salty
+    description: "One exploit to control them all ... "
+    points: 350
+    value: CTF{TheGangLikesSaltyPasta}
+
+systems:
+  - type: docker
+    image: salty_minion
+    capabilities: ["NET_ADMIN"]
+    networks:
+    - {net: user_1}
+
+  - type: docker
+    image: salty_dhcp
+    networks:
+    - {net: user_1, ip: 10.6.0.2/24}
+    - {net: access}
+    exposed:
+    - {port: 22, type: tcp}
