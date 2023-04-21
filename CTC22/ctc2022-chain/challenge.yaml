@@ -1,0 +1,35 @@
+title: Chain
+author: ABN AMRO 
+public_description: >
+  <div class="challtext">
+     Athough we are always target of cyber attacks we keep going in production without testing...
+     Connect over SSH (ctc:ctc) to our jumphost and please let us know where they messed up! 
+     <br><br><i>Author information: This challenge is developed by ABN AMRO.</i></div>
+  <div class="ctctrain ctctrain-network"></div>
+tags: "hard"
+
+
+flags:
+  - tags: [web, network]
+    title: "God bless debugging"
+    description: "Take a deeper lock, it seems some rings are missing!"
+    unique_id: ctc2022-chain-it
+    points: 300
+    value: CTF{Y0u_g0t_t0_L0v3_J4va}
+
+
+systems:
+  - type: docker
+    image: ctc2022_chain_log4fun
+    capabilities: ["NET_ADMIN"]
+    networks:
+    - {net: user_1, ip: 10.6.0.3/24}
+
+  - type: docker
+    image: ctc2022_chain_masterssh
+    capabilities: ["NET_ADMIN"]
+    networks:
+    - {net: user_1, ip: 10.6.0.2/24}
+    - {net: access}
+    exposed:
+    - {port: 22, type: tcp}
