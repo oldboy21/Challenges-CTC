@@ -1,7 +1,7 @@
 # Chain4Fun
 Network forensic combined with spicy log4j vulnerability exploitation
 ## Structure 
-This challenge is made of two docker containers that shares a private network (same setup as [Salty challenge](https://gitlab.com/ctc2021/ctc-network-salty) of CTC2021). Please check out the [initiate.sh](https://gitlab.com/challengethecyber/challenges/-/blob/main/challenges/ctc2022-chain/initiate.sh) script to understand all the steps taken in order to develop the virtual environment. In order to start the challenge the partecipant will have to SSH into the master container.  
+This challenge is made of two docker containers that shares a private network (same setup as [Salty challenge](https://github.com/oldboy21/Challenges-CTC/tree/master/CTC21/ctc-network-salty) of CTC2021). Please check out the initiate.sh script to understand all the steps taken in order to develop the virtual environment. In order to start the challenge the partecipant will have to SSH into the master container.  
 ## Walkthrough
 The user is given non-privileged SSH access to the master machine, in the home folder of the ctc user the following script is found:
 ```
